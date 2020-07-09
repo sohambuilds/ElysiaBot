@@ -1,5 +1,5 @@
 
-const token = "NzI5NjUwNjgyODMwOTEzNTc4.XwMCPA.88jiPiSAUeudRn60t6GIfPR8n8E"
+const token = process.env.token;
 const prefix = "/"
 const Discord = require("discord.js");
 
@@ -22,6 +22,8 @@ client.on("ready", async () => {
         let activities = [`${client.guilds.size} server and ${client.users.size} slaves` , `Dev: BlazingDragon(iDragonDude)` ,  '/help for help ']
 
        let activity = activities[Math.floor(Math.random()*activities.length)]
+       
+       let numberomembers = `${client.users.size}`
 
        client.user.setActivity(activity, { type: "LISTENING"})
     }, 5000)
@@ -263,6 +265,12 @@ if (message.content.startsWith(prefix + 'close')){
 
 
     }
+
+
+}
+if (message.content.startsWith(prefix + 'members')){
+
+    message.channel.send(`Currently,we have ${numberomembers} slaves in here!!!!`)
 
 
 }
